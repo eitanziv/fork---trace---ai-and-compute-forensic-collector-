@@ -36,6 +36,14 @@ $ trace discover
 
 ---
 
+## Watch the explainer
+
+[![Watch the TRACE explainer](site/video/trace-explainer-poster.png)](site/video/trace-explainer.mp4)
+
+*52 seconds: discovery, acquisition, analysis and the report, on a live endpoint.*
+
+---
+
 **Developed by [TRACE](https://github.com/ionsec/trace)**
 
 > **USE AT YOUR OWN RISK.** TRACE is provided **as is, without warranty of any kind**,
