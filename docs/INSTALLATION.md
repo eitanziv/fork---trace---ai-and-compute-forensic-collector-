@@ -71,7 +71,7 @@ pip install -e ".[dev,iris]"
 
 ```bash
 trace --version
-# TRACE, version 1.0.1
+# TRACE, version 1.1.0
 ```
 
 ---

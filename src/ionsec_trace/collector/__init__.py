@@ -185,7 +185,7 @@ def collect_all(output_dir, platforms=None, do_hash=True, chain_of_custody=True,
         manifest_path = Path(output_dir) / "CHAIN_OF_CUSTODY.json"
         manifest = {
             "tool": "TRACE",
-            "version": "1.0.1",
+            "version": "1.1.0",
             "collected_at": all_collected[0].collected_at if all_collected else "",
             "total_files": len(all_collected),
             "files": [cf.to_dict() for cf in all_collected],

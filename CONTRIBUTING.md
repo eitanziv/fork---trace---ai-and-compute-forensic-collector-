@@ -77,7 +77,7 @@ from ionsec_trace.collector.base import (
 class MyCollector(BaseCollector):
     PLATFORM_NAME = "my_platform"
     PLATFORM_CATEGORY = PlatformCategory.INFERENCE  # or AGENT, DEVTOOL, CLOUD
-    VERSION = "1.0.1"
+    VERSION = "1.1.0"
     PROCESS_NAMES = ["my_platform"]
     SERVICE_PORTS = [8080]
 
