@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>TRACE — AI &amp; Compute Forensic Evidence Collector | IONSEC</title>
-<meta name="description" content="TRACE collects, analyzes and reports AI platform evidence from an endpoint — forensically soundly. 27 collectors, 103 secret-detection rules, MITRE ATLAS &amp; ATT&amp;CK mapping, STIX 2.1. Python CLI and Go binary. Built by IONSEC, a DFIR company.">
+<meta name="description" content="TRACE collects, analyzes and reports AI platform evidence from an endpoint — forensically soundly. 52 collectors, 103 secret-detection rules, MITRE ATLAS &amp; ATT&amp;CK mapping, STIX 2.1. Python CLI and Go binary. Built by IONSEC, a DFIR company.">
 <meta name="keywords" content="DFIR, digital forensics, incident response, shadow AI, LLM security, AI forensics, MITRE ATLAS, STIX, Velociraptor, IONSEC">
 <meta name="author" content="IONSEC">
 <link rel="canonical" href="https://ionsec.github.io/trace/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="TRACE by IONSEC">
 <meta property="og:title" content="TRACE — Leave no model untraced">
-<meta property="og:description" content="Forensically sound AI evidence collection, analysis and reporting for DFIR teams. 27 collectors, 103 secret rules, MITRE ATLAS &amp; ATT&amp;CK, STIX 2.1.">
+<meta property="og:description" content="Forensically sound AI evidence collection, analysis and reporting for DFIR teams. 52 collectors, 103 secret rules, MITRE ATLAS &amp; ATT&amp;CK, STIX 2.1.">
 <meta property="og:url" content="https://ionsec.github.io/trace/">
 <meta property="og:image" content="https://ionsec.github.io/trace/report-preview.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -271,6 +271,16 @@ p{max-width:68ch}
 .showcase-caption{padding:var(--s4) var(--s6);border-top:1px solid var(--line);font-family:var(--mono);font-size:.76rem;color:var(--text-dim);display:flex;flex-wrap:wrap;gap:.4rem 1.2rem}
 
 /* ============================================================
+   Explainer video
+   ============================================================ */
+.video-figure{
+  border:1px solid var(--line-2);border-radius:var(--radius);overflow:hidden;
+  background:#050507;box-shadow:0 40px 90px -40px rgba(0,0,0,.95);
+}
+.video-figure video{display:block;width:100%;height:auto;background:#050507}
+.video-caption{padding:var(--s4) var(--s6);border-top:1px solid var(--line);font-family:var(--mono);font-size:.76rem;color:var(--text-dim)}
+
+/* ============================================================
    Parity table
    ============================================================ */
 .table-wrap{border:1px solid var(--line);border-radius:var(--radius);overflow-x:auto;background:var(--surface)}
@@ -393,6 +403,7 @@ td.center,th.center{text-align:center;width:120px}
     <nav class="nav-links" aria-label="Primary">
       <a href="#threat">Why</a>
       <a href="#capabilities">Capabilities</a>
+      <a href="#watch">Watch</a>
       <a href="#how">How it works</a>
       <a href="#report">Report</a>
       <a href="#deploy">Deploy</a>
@@ -414,6 +425,7 @@ td.center,th.center{text-align:center;width:120px}
     <div class="wrap">
       <a href="#threat">Why TRACE</a>
       <a href="#capabilities">Capabilities</a>
+      <a href="#watch">Watch</a>
       <a href="#how">How it works</a>
       <a href="#report">Report</a>
       <a href="#deploy">Deploy</a>
@@ -462,10 +474,28 @@ td.center,th.center{text-align:center;width:120px}
 <!-- ================= METRICS ================= -->
 <section class="wrap" aria-label="Key numbers">
   <div class="metrics reveal">
-    <div class="metric"><div class="metric-value" data-count="27">0</div><div class="metric-label">Platform collectors</div></div>
+    <div class="metric"><div class="metric-value" data-count="52">0</div><div class="metric-label">Platform collectors</div></div>
     <div class="metric"><div class="metric-value" data-count="103">0</div><div class="metric-label">Secret rules</div></div>
-    <div class="metric"><div class="metric-value" data-count="15">0</div><div class="metric-label">Velociraptor artifacts</div></div>
+    <div class="metric"><div class="metric-value" data-count="17">0</div><div class="metric-label">Velociraptor artifacts</div></div>
     <div class="metric"><div class="metric-value" data-count="3">0</div><div class="metric-label">Report formats</div></div>
+  </div>
+</section>
+
+<!-- ================= EXPLAINER ================= -->
+<section class="section" id="watch">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Explainer</span>
+      <h2>TRACE in 52 seconds</h2>
+      <p>Discovery, acquisition, analysis and the report — on a live endpoint, with the tool&rsquo;s own output as the evidence. No presenter, no mockups.</p>
+    </div>
+    <figure class="video-figure reveal">
+      <video controls preload="metadata" playsinline poster="video/trace-explainer-poster.png" width="1920" height="1080">
+        <source src="video/trace-explainer.mp4" type="video/mp4">
+        Your browser does not support the video tag — <a href="video/trace-explainer.mp4">download the MP4</a>.
+      </video>
+      <figcaption class="video-caption">52 s · 1920×1080 · real <code>trace discover</code>, <code>collect</code>, <code>analyze</code> and <code>report</code> output</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -521,8 +551,8 @@ td.center,th.center{text-align:center;width:120px}
     <div class="grid grid-3">
       <article class="card reveal">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10" stroke-linecap="round"/><circle cx="18" cy="18" r="3"/></svg></div>
-        <h3>27 platform collectors</h3>
-        <p>Inference runtimes, agent frameworks, AI dev tools and cloud caches — plus a shadow-AI sweep covering 47 more tools by their on-disk footprint.</p>
+        <h3>52 platform collectors</h3>
+        <p>Inference runtimes, agent frameworks, AI dev tools — Codex CLI, Gemini CLI, OpenCode, Cursor, Claude Code, Copilot, Warp and more — plus local apps, cloud caches and a shadow-AI sweep covering 47 further tools by their on-disk footprint.</p>
       </article>
 
       <article class="card reveal">
@@ -665,7 +695,7 @@ td.center,th.center{text-align:center;width:120px}
           <tr><th>Capability</th><th class="center">Python CLI</th><th class="center">Go binary</th></tr>
         </thead>
         <tbody>
-          <tr><td>27 collectors + 47 shadow-AI tool detections</td><td class="center"><span class="check">✓</span></td><td class="center"><span class="check">✓</span></td></tr>
+          <tr><td>52 collectors + 47 shadow-AI tool detections</td><td class="center"><span class="check">✓</span></td><td class="center"><span class="check">✓</span></td></tr>
           <tr><td>Curated collection + chain of custody</td><td class="center"><span class="check">✓</span></td><td class="center"><span class="check">✓</span></td></tr>
           <tr><td>IOC extraction &amp; 103-rule secret detection</td><td class="center"><span class="check">✓</span></td><td class="center"><span class="check">✓</span></td></tr>
           <tr><td>Conversation forensics &amp; secret hunt</td><td class="center"><span class="check">✓</span></td><td class="center"><span class="check">✓</span></td></tr>
@@ -813,7 +843,7 @@ td.center,th.center{text-align:center;width:120px}
       </details>
       <details>
         <summary>Can I run it across a whole fleet?</summary>
-        <div class="answer">Yes. TRACE ships 15 Velociraptor artifacts, including <code>TRACE.AI.Binary.Linux</code>, <code>.macOS</code> and <code>.Windows</code>, which fetch and run the binary on each endpoint and return the results to your existing Velociraptor server. No new infrastructure.</div>
+        <div class="answer">Yes. TRACE ships 17 Velociraptor artifacts, including <code>TRACE.AI.Binary.Linux</code>, <code>.macOS</code> and <code>.Windows</code>, which fetch and run the binary on each endpoint and return the results to your existing Velociraptor server. No new infrastructure.</div>
       </details>
       <details>
         <summary>How does it fit an existing DFIR workflow?</summary>
