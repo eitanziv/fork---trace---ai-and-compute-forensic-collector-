@@ -447,7 +447,7 @@ Equivalent to `trace discover` with a summary count. Useful for rapid triage whe
 
 ## 6. Collectors — What TRACE Collects
 
-TRACE ships with **27 collectors** spanning local inference engines, agent
+TRACE ships with **52 collectors** spanning local inference engines, agent
 frameworks, AI development tools, and live network/container/browser AI.
 
 ### Artifact Types
