@@ -48,7 +48,7 @@ Discovered 5 AI platform(s):
   • huggingface (cloud)
 ```
 
-TRACE automatically scans for 27 platforms across 4 categories:
+TRACE automatically scans for 49 platforms across 4 categories:
 - **Inference**: Ollama, LM Studio, GPT4All, text-generation-webui, llama.cpp, KoboldCpp, LiteLLM, Bifrost, Unsloth
 - **Agent**: DeepSeek Harness (dsh), Hermes, AutoGPT, CrewAI, Aider, Shell-GPT, Devin, Eigent, Shadow AI, Docker AI
 - **DevTool**: Cursor, Claude Code, Antigravity, VSCodium, Code Scanner

@@ -66,7 +66,7 @@ $ trace discover
 - **Browser AI Forensics** — captures browser-based AI assistant evidence (Brave Leo, Perplexity, Microsoft Copilot, ChatGPT, Claude, Gemini web) from browser history and per-site conversation stores
 - **Full Analyzer Set** — Unified Timeline, IOC Extractor, MITRE ATLAS Mapper, Risk Scorer, AI-specific IOC Detector, Enhanced Risk Scorer, and Conversation Parser
 - **3 Report Formats** — Interactive HTML (attack-surface map, charts, stats), JSON, STIX 2.1
-- **15 Velociraptor Artifacts** — Deploy to fleet endpoints via Velociraptor server
+- **17 Velociraptor Artifacts** — Deploy to fleet endpoints via Velociraptor server
 - **Forensically Sound** — Read-only collection, SHA-256 per file, chain of custody manifest, UTC timestamps
 - **Cross-Platform** — Linux, macOS, Windows paths per collector
 
@@ -152,7 +152,7 @@ conversation stores but does not parse them.
 
 | Capability | Python CLI | Go binary |
 |---|---|---|
-| Platform catalog (27 platforms, 47 shadow-AI tools) | ✅ | ✅ |
+| Platform catalog (49 platforms, 47 shadow-AI tools) | ✅ | ✅ |
 | Curated collection + chain of custody | ✅ | ✅ |
 | IOC extraction (IPs, URLs, domains, hashes, paths, commands, exfil patterns) | ✅ | ✅ |
 | Secret detection (103 rules, entropy gating, allowlists) | ✅ | ✅ |
