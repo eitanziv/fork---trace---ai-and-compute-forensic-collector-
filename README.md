@@ -51,7 +51,7 @@ $ trace discover
 
 ## Features
 
-- **27 Collectors** — DeepSeek Harness (dsh), Ollama, Hermes, LM Studio, GPT4All, text-generation-webui, llama.cpp, KoboldCpp, AutoGPT, CrewAI, Aider, Shell-GPT, Cursor, Claude Code, HuggingFace, LiteLLM, Bifrost, Unsloth, Antigravity, Devin, VSCodium, Eigent + the Shadow AI meta-collector, the Network AI collector (live process→domain AI traffic), the Code Scanner collector (AI framework imports, MCP configs, hardcoded API keys), the Docker AI collector (Gordon + hosted LLM images/containers), and the Browser AI collector (Brave Leo, Perplexity, Copilot, ChatGPT, Gemini web)
+- **52 Collectors** — DeepSeek Harness (dsh), Ollama, Hermes, LM Studio, GPT4All, text-generation-webui, llama.cpp, KoboldCpp, AutoGPT, CrewAI, Aider, Shell-GPT, Cursor, Claude Code, HuggingFace, LiteLLM, Bifrost, Unsloth, Antigravity, Devin, VSCodium, Eigent, Codex CLI, Gemini CLI, OpenCode, Cline/Roo Code, GitHub Copilot (CLI + VS Code Chat), Warp, Goose, Kiro, Amazon Q, Zed, the pi family (pi/MiniMax/omp/senpi), Kimi Code, Qwen Code, Continue, Augment, Grok, Amp, Kilo, Jan, AnythingLLM, LocalAI, Open WebUI, vLLM, Lemonade, desktop chat apps (ChatGPT/Claude) + the Shadow AI meta-collector, the Network AI collector (live process→domain AI traffic), the Code Scanner collector (AI framework imports, MCP configs, hardcoded API keys), the Docker AI collector (Gordon + hosted LLM images/containers), and the Browser AI collector (Brave Leo, Perplexity, Copilot, ChatGPT, Gemini web)
 - **Live Network AI Detection** — correlates running processes with outbound connections and classifies destination domains against a catalog of 100+ AI providers (OpenAI, Anthropic, Gemini, Bedrock, etc.)
 - **Source-Code AI Scanning** — detects AI framework imports (LangChain, CrewAI, AutoGen, 80+ others), MCP server registrations, and hardcoded API keys in code
 - **Docker AI Detection** — detects Docker's AI assistant (Gordon) and hosted LLM workloads (ollama, LocalAI, vLLM, OpenWebUI, etc.) in containers and the model registry
@@ -125,14 +125,22 @@ a timestamp.
 ./bin/trace-darwin-arm64 iris /tmp/evidence --host https://iris.example.com --api-key "$IRIS_API_KEY"
 ```
 
+On Windows, pass a Windows path to `-o` (`C:\evidence`, `.\evidence`) instead of
+the POSIX form above — `/evidence` has no drive letter and resolves against the
+drive of the current directory. Every command prints the resolved absolute path:
+
+```powershell
+trace-windows-amd64.exe collect -o C:\evidence --deep
+```
+
 ### Python / Go capability parity
 
 Both builds share one forensic data model (chain of custody, SHA-256 hashing,
 UTC timestamps) and one analysis contract, so evidence produced by either is
 interchangeable and either can report on the other's output. Capabilities are
-**near-identical**, with one deliberate exception: the Go binary
-(see below) and therefore collects SQLite conversation stores but does not
-parse them.
+**near-identical**, with one deliberate exception: the Go binary carries no cgo
+or system-library dependencies (see below) and therefore collects SQLite
+conversation stores but does not parse them.
 
 | Capability | Python CLI | Go binary |
 |---|---|---|
@@ -363,13 +371,15 @@ The HTML report is a self-contained, interactive forensic report (no CDN depende
 
 ## Velociraptor Artifacts
 
-15 artifacts for fleet deployment (all validated with `velociraptor artifacts verify`):
+17 artifacts for fleet deployment (all validated with `velociraptor artifacts verify`):
 
 | Artifact | Description |
 |----------|-------------|
-| `TRACE.AI.Inference` | Ollama, LM Studio, GPT4All, text-gen-webui, llama.cpp, KoboldCpp, LiteLLM, Bifrost, Unsloth |
-| `TRACE.AI.Agents` | Hermes, AutoGPT, CrewAI, Aider, Shell-GPT, Devin, Eigent |
-| `TRACE.AI.DevTools` | Cursor, Claude Code, Codex, Continue, Cline, Warp, Antigravity, VSCodium |
+| `TRACE.AI.Inference` | Ollama, LM Studio, GPT4All, text-gen-webui, llama.cpp, KoboldCpp, LiteLLM, Bifrost, Unsloth, Jan, AnythingLLM, LocalAI, Open WebUI, vLLM, Lemonade |
+| `TRACE.AI.Agents` | Hermes, AutoGPT, CrewAI, Aider, Shell-GPT, Devin, Eigent, Goose, Kiro, Amazon Q, pi family, Kimi Code, Qwen Code, Continue, Augment, Grok, Amp, Kilo |
+| `TRACE.AI.DevTools` | Cursor, Claude Code, Codex CLI, Gemini CLI, OpenCode, Cline/Roo, Copilot, Warp, Zed, Antigravity, VSCodium |
+| `TRACE.AI.CodingAgents` | Per-platform sources for Codex CLI, Gemini CLI, OpenCode, Cline/Roo, Copilot, Warp, Goose, Kiro, Amazon Q, Zed, pi family, Kimi Code, Qwen Code, Continue, Augment, Grok, Amp, Kilo |
+| `TRACE.AI.LocalApps` | Jan, AnythingLLM, LocalAI, Open WebUI, vLLM, Lemonade |
 | `TRACE.AI.APIKeys` | Credential scanner across all platforms |
 | `TRACE.AI.HuggingFace` | HuggingFace Hub cache, models, tokens |
 | `TRACE.AI.Network` | AI service port detection, DNS cache |

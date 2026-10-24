@@ -205,6 +205,14 @@ class TestMockCollectorAPI:
         assert result is None
 
 
+@pytest.fixture(autouse=True)
+def _isolate_real_home(tmp_path, monkeypatch):
+    """Never scan the test machine's real home: runners may hold unreadable dirs."""
+    from ionsec_trace.collector.base import BaseCollector
+    monkeypatch.setattr(BaseCollector, "get_user_home_dirs", lambda self: [tmp_path])
+    yield
+
+
 class TestCollectorImports:
     """Test that all 27 collectors can be imported and have the right interface."""
 
