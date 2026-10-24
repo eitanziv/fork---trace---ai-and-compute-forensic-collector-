@@ -21,7 +21,7 @@ var reportTemplate string
 var reportCSS string
 
 // toolVersion is the TRACE release this binary belongs to.
-const toolVersion = "1.0.1"
+const toolVersion = "1.1.0"
 
 // sevColors maps a severity to the TRACE palette, kept in sync with the
 // Python reporter's SEV_COLORS.

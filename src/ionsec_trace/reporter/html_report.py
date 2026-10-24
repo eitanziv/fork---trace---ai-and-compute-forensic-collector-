@@ -2011,7 +2011,7 @@ class HTMLReportGenerator:
             **charts,
             "report_id": str(uuid.uuid4())[:8].upper(),
             "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC"),
-            "trace_version": "1.0.1",
+            "trace_version": "1.1.0",
             "evidence_dir": str(self.evidence_dir),
             "source_os": source_os,
             "hostname": hostname,

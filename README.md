@@ -227,7 +227,7 @@ Every collection produces a `CHAIN_OF_CUSTODY.json` containing:
 ```json
 {
   "tool": "TRACE",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "collected_at": "2026-08-13T08:56:55Z",
   "total_files": 144,
   "files": [
